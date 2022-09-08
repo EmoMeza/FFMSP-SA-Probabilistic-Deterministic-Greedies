@@ -1,19 +1,28 @@
+import os
+from fileinput import filename
 import random
-from typing import Counter
 
-def get_Inputs():
-    #get a set of n sequenses of m over a alphabet of k
-    #k_alfabet are 4 letters, A, C, G, T
-    #get sequences
-    n=int(input("How many sequences\n"))
-    m=int(input("How long is the sequence\n"))
-    #get sequences
+def get_Input_From_File(number):
+    
+    current_path=os.getcwd()
+    
+    if(number<10):
+        filename="100-300-00"+str(number)+".txt"
+    elif(number==10):
+        filename="100-300-010.txt"
+    elif(number==69):
+        filename="emo_ejemplo.txt"
+
+    file_path=current_path+"/examples/"+str(filename)
+    file=open(file_path,"r")
     sequences=[]
-    for i in range(n):
-        sequences.append(input("Enter sequence\n"))
-    #get a threshold for the similarity
-    threshold=float(input("Enter threshold:\n"))
-    return sequences, threshold
+    
+    for line in file:
+        sequences.append(line)
+    file.close()
+
+    return sequences
+
 
 def get_Hamming_Distance(sequence1, sequence2):
     cont=0
@@ -46,7 +55,7 @@ def GRASP(number_of_iterations):
 def less_freq_in_every_column(sequences,row,column):
     print("here")
     less_freq=[]
-    for i in range(column):
+    for i in range(column-1):
         counter_A=0
         counter_C=0
         counter_G=0
@@ -73,9 +82,8 @@ def less_freq_in_every_column(sequences,row,column):
     return less_freq
 
 
-def GRASP2(sequence, threshold):
-    #return a random float number between 0 and 1, with 3 decimals
-    alpha=round(random.uniform(0, 1), 3)
+def Greedy(sequence):
+    threshold=createThreshold()
     #create a matrix of n sequences of m
     n=len(sequence)
     m=len(sequence[0])
@@ -97,3 +105,7 @@ def GRASP2(sequence, threshold):
         print(less_freq[i], end=" ")
     print()
 
+def createThreshold():
+    #return a random float number between 0 and 1, with 3 decimals
+    threshold=round(random.uniform(0, 1), 3)
+    return threshold
