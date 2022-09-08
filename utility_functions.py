@@ -14,14 +14,9 @@ def get_Inputs():
     return sequences, threshold
 
 def get_Hamming_Distance(sequence1, sequence2):
-    #check the 1s and 0s in the same position, if they are different, create a new sequence with 1s in the different positions and 0s in the same positions
-    #return the new sequence
-    #print(sequence1, sequence2)
-    new_sequence=""
+    cont=0
     for i in range(len(sequence1)):
         if sequence1[i]==sequence2[i]:
-            new_sequence+="0"
-        else:
-            new_sequence+="1"
-    return new_sequence
+            cont=cont+1
+    return 4-cont
     
