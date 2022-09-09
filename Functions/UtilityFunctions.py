@@ -7,14 +7,12 @@ def constructSolution(sequence,less_freq,threshold):
     metric=hf.min_Hamming_Distance(sequence,threshold)
     for i in range(len(sequence[0])-1):
         if(len(answer)<metric):
-            print("less than metric "+str(i))
             answer.append(ff.get_less_frequent(less_freq,i)) 
         else:
-            print("more than metric "+str(i))
-            answer.append(check_Metric(answer,sequence,metric,less_freq[i]))            
+            answer.append(get_character_for_answer(answer,sequence,metric,less_freq[i]))            
     print(answer)
 
-def check_Metric(answer,sequence,metric,less_freq):
+def get_character_for_answer(answer,sequence,metric,less_freq):
     selective_answer=[]
     
     value_A=get_metric_value(sequence,answer,metric,"A")
@@ -34,8 +32,7 @@ def check_Metric(answer,sequence,metric,less_freq):
         selective_answer.append("G")
     if(value_T==max(value_A,value_C,value_G,value_T)):
         selective_answer.append("T")
-    return get_metric_answer(selective_answer,less_freq)
-
+    return get_character(selective_answer,less_freq)
 
 def get_metric_value(sequence,answer,metric,character):
     answer.append(character)
@@ -46,13 +43,10 @@ def get_metric_value(sequence,answer,metric,character):
             counter=counter+1
     return counter
 
-
-
-def get_metric_answer(selective_answer,less_freq):
+def get_character(selective_answer,less_freq):
     if(len(selective_answer)==1):
         return selective_answer[0]
     number_repeated=get_repeated(selective_answer,less_freq)
-    print(number_repeated)
     if(number_repeated==0):
         return random.choice(selective_answer)
     if(number_repeated==1):
@@ -62,8 +56,6 @@ def get_metric_answer(selective_answer,less_freq):
 
 def get_repeated(selective_answer,less_freq):
     count=0
-    print(less_freq)
-    print(selective_answer)
     for i in range(len(selective_answer)):
         if(selective_answer[i] in less_freq):
             count=count+1
