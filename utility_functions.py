@@ -1,3 +1,5 @@
+from cgi import print_form
+from itertools import count
 import os
 from fileinput import filename
 from select import select
@@ -6,8 +8,7 @@ import numpy as np
 import random
 
 def get_Input_From_File(number):
-    
-    current_path=os.getcwd()
+    current_path=os.getcwd() 
     
     if(number<10):
         filename="100-300-00"+str(number)+".txt"
@@ -19,7 +20,7 @@ def get_Input_From_File(number):
     file_path=current_path+"/examples/"+str(filename)
     file=open(file_path,"r")
     sequences=[]
-    
+
     for line in file:
         sequences.append(line)
     file.close()
@@ -34,26 +35,15 @@ def get_Hamming_Distance(sequence1, sequence2):
             cont=cont+1
     return cont
 
-def local_Search():
-    no_Local=True
-    while no_Local:
-        if(True):
-            return True
-        else:
-            no_Local=False
-    return False
-
-
-
-def less_freq_in_every_column(sequences,row,column):
+def less_freq_in_every_column(sequences):
     answer=[]
-    for i in range(column-1):
+    for i in range(len(sequences[0])-1):
         counter_A=0
         counter_C=0
         counter_G=0
         counter_T=0
         selective_charachter=[]
-        for j in range(row):
+        for j in range(len(sequences)):
             if(sequences[j][i]=="A"):
                 counter_A=counter_A+1
             elif(sequences[j][i]=="C"):
@@ -75,52 +65,86 @@ def less_freq_in_every_column(sequences,row,column):
 
 
 def Greedy(sequence,threshold):
-    n=len(sequence)
-    m=len(sequence[0])
     less_freq=[]
-    less_freq=less_freq_in_every_column(sequence,n, m)
-    contrucSolution(sequence,n,less_freq,threshold)
+    less_freq=less_freq_in_every_column(sequence)
+    contrucSolution(sequence,less_freq,threshold)
 
 def min_Hamming_Distance(len_sequences,threshold):
     value=int(threshold*len_sequences)
     return value
 
-def contrucSolution(sequence,len_sequences,less_freq,threshold):
-    metric=min_Hamming_Distance(len_sequences,threshold)
+def contrucSolution(sequence,less_freq,threshold):
+    metric=min_Hamming_Distance(len(sequence[0])-1,threshold)
     answer=[]
-    for i in range(len(sequence[0])):
-        if(len(answer)<=metric):
+    for i in range(len(sequence[0])-1):
+        if(len(answer)<metric):
+            print("less than metric "+str(i))
             answer.append(check_less_freq(less_freq,i)) 
         else:
-            answer.append(check_Metric(answer,sequence,metric))            
+            print("more than metric "+str(i))
+            answer.append(check_Metric(answer,sequence,metric,less_freq[i]))            
     print(answer)
         
     
+
+
+def check_Metric(answer,sequence,metric,less_freq):
+    selective_answer=[]
+    
+    value_A=get_metric_value(sequence,answer,metric,"A")
+    answer.pop()
+    value_C=get_metric_value(sequence,answer,metric,"C")
+    answer.pop()
+    value_G=get_metric_value(sequence,answer,metric,"G")
+    answer.pop()
+    value_T=get_metric_value(sequence,answer,metric,"T")
+    answer.pop()
+    
+    if(value_A==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("A")
+    if(value_C==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("C")
+    if(value_G==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("G")
+    if(value_T==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("T")
+    return get_metric_answer(selective_answer,less_freq)
+
+
+def get_metric_value(sequence,answer,metric,character):
+    answer.append(character)
+    counter=0
+    for i in range(len(sequence)-1):
+        hammin_distance=get_Hamming_Distance(answer,sequence[i])
+        if(hammin_distance>=metric):
+            counter=counter+1
+    return counter
+
+def get_metric_answer(selective_answer,less_freq):
+    if(len(selective_answer)==1):
+        return selective_answer[0]
+    number_repeated=get_repeated(selective_answer,less_freq)
+    print(number_repeated)
+    if(number_repeated==0):
+        return random.choice(selective_answer)
+    if(number_repeated==1):
+        return less_freq[0]
+    elif(number_repeated>1):
+        return random.choice(less_freq)
+
+
+def get_repeated(selective_answer,less_freq):
+    count=0
+    print(less_freq)
+    print(selective_answer)
+    for i in range(len(less_freq)):
+        if(str(less_freq) in selective_answer[i] ):
+            count=count+1
+    return count    
+
 def check_less_freq(less_freq,i):
     characters=less_freq[i]
     if(len(characters)==1):
         return characters[0]
     else:
         return random.choice(characters)
-
-def check_Metric(answer,sequence,metric):
-    copy_answer=answer
-    value_A=check_sequence(sequence,copy_answer,metric,"A")
-    #remove the last element of the list copy_answer
-    copy_answer.pop()
-    value_C=check_sequence(sequence,copy_answer,metric,"C")
-    copy_answer.pop()
-    value_G=check_sequence(sequence,copy_answer,metric,"G")
-    copy_answer.pop()
-    value_T=check_sequence(sequence,copy_answer,metric,"T")
-    #print(value_A,value_C,value_G,value_T)
-    return True
-
-def check_sequence(sequence,answer,metric,character):
-    answer.append(character)
-    counter=0
-    for i in range(len(answer)):
-        hammin_distance=get_Hamming_Distance(answer,sequence[i])
-        if(hammin_distance>=metric):
-            counter=counter+1
-    return counter

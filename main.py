@@ -8,6 +8,5 @@ def main():
     sequence=uf.get_Input_From_File(int(file_number))
     uf.Greedy(sequence,threshold)
 
-
 if __name__ == '__main__':
     main()
