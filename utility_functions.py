@@ -137,8 +137,8 @@ def get_repeated(selective_answer,less_freq):
     count=0
     print(less_freq)
     print(selective_answer)
-    for i in range(len(less_freq)):
-        if(str(less_freq) in selective_answer[i] ):
+    for i in range(len(selective_answer)):
+        if(selective_answer[i] in less_freq):
             count=count+1
     return count    
 
