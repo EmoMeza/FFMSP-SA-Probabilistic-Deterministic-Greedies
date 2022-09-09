@@ -1,9 +1,6 @@
 import sys
-import os
 import Services.FileManager as fm
 import Functions.Greedys as gd
-
-
 
 def main():
     file_name=sys.argv[2]
@@ -13,8 +10,6 @@ def main():
     
 
 if __name__ == '__main__':
-    print(sys.argv)
-    print(len(sys.argv))
     if(len(sys.argv)==1):
         print("No arguments")
     if(len(sys.argv)==2 and sys.argv[1]=="-h"):
