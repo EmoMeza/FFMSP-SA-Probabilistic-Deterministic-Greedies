@@ -30,3 +30,4 @@ if __name__ == '__main__':
         print("Incorrect execution")
         print("For help, enter the following argument:")
         print("python3 main.py -h")
+        
