@@ -4,7 +4,7 @@ import os
 
 def open_File_By_Name(name):
     current_path=os.getcwd() 
-    file_path=current_path+"/examples/"+str(name)
+    file_path=current_path+"/Examples/"+str(name)
     file=open(file_path,"r")
     sequences=[]
     for line in file:
@@ -20,7 +20,7 @@ def get_Input_From_File(number):
         filename="100-300-010.txt"
     elif(number==69):
         filename="emo_ejemplo.txt"
-    file_path=current_path+"/examples/"+str(filename)
+    file_path=current_path+"/Examples/"+str(filename)
     file=open(file_path,"r")
     sequences=[]
     for line in file:
@@ -30,7 +30,7 @@ def get_Input_From_File(number):
 #create a program that can recieve muiltiple strings and write them to a file
 def save_To_File(average_time):
     current_path=os.getcwd() 
-    file_path=current_path+"/examples/times.txt"
+    file_path=current_path+"/Data/times.txt"
     file=open(file_path,"w")
     for i in range(0,len(average_time)):
         if(i==0):

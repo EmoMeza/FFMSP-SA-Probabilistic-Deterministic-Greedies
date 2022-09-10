@@ -4,12 +4,12 @@ import Services.FileManager as fm
 
 def timer(sequence,threshold):
     average_time=0
-    for i in range(0,100):
+    for i in range(0,10):
         start_time=time.time()
         gd.Greedy(sequence,threshold)
         end_time=time.time()
         average_time+=end_time-start_time
-    return average_time/100    
+    return average_time/10
 
 def get_answer_Time():
     average_time=[]

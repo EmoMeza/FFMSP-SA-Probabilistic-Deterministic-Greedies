@@ -16,6 +16,7 @@ def main():
 if __name__ == '__main__':
     if(len(sys.argv)==1):
         print("No arguments")
+
     if(len(sys.argv)==2 and sys.argv[1]=="-h"):
         print("Help:")
         print("For correct execution of the program, you must enter the following arguments:")
@@ -23,12 +24,10 @@ if __name__ == '__main__':
         print("Example: python3 main.py -i sequences.txt -th 0.5")
         print("Because of problems nature, threshold must be a number between 0 and 1")
 
-    if(len(sys.argv)==2 and sys.argv[1]=="-t"):
-        main()
-
-    if(len(sys.argv)==5 and sys.argv[1]=="-i" and sys.argv[3]=="-th"):
+    if((len(sys.argv)==5 and sys.argv[1]=="-i" and sys.argv[3]=="-th")or(len(sys.argv)==2 and sys.argv[1]=="-t")):
         print("Correct execution")
         main()
+
     else:
         print("Incorrect execution")
         print("For help, enter the following argument:")
