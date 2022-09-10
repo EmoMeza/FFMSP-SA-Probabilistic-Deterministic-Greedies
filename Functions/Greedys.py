@@ -1,7 +1,10 @@
 import Functions.FrequentFunctions as ff
 import Functions.UtilityFunctions as uf
+import Functions.HammingFunctions as hf
 
-def Greedy(sequence,threshold):
+def Greedy(sequences,threshold):
     less_freq=[]
-    less_freq=ff.create_less_frequent(sequence)
-    uf.constructSolution(sequence,less_freq,threshold)
+    metric=hf.min_Hamming_Distance(sequences,threshold)
+    less_freq=ff.create_less_frequent(sequences)
+    answer=uf.constructSolution(sequences,less_freq,metric)
+    print(uf.answer_Quality(answer,sequences,metric))

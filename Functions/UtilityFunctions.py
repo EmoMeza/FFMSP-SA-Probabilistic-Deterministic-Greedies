@@ -2,26 +2,25 @@ import random
 import Functions.FrequentFunctions as ff
 import Functions.HammingFunctions as hf
 
-def constructSolution(sequence,less_freq,threshold):
+def constructSolution(sequences,less_freq,metric):
     answer=[]
-    metric=hf.min_Hamming_Distance(sequence,threshold)
-    for i in range(len(sequence[0])-1):
+    for i in range(sequences[0].get_Length()-1):
         if(len(answer)<metric):
             answer.append(ff.get_less_frequent(less_freq,i)) 
         else:
-            answer.append(get_character_for_answer(answer,sequence,metric,less_freq[i]))            
-    print(answer)
+            answer.append(get_character_for_answer(answer,sequences,metric,less_freq[i]))            
+    return answer
 
-def get_character_for_answer(answer,sequence,metric,less_freq):
+def get_character_for_answer(answer,sequences,metric,less_freq):
     selective_answer=[]
     
-    value_A=get_metric_value(sequence,answer,metric,"A")
+    value_A=get_metric_value(sequences,answer,metric,"A")
     answer.pop()
-    value_C=get_metric_value(sequence,answer,metric,"C")
+    value_C=get_metric_value(sequences,answer,metric,"C")
     answer.pop()
-    value_G=get_metric_value(sequence,answer,metric,"G")
+    value_G=get_metric_value(sequences,answer,metric,"G")
     answer.pop()
-    value_T=get_metric_value(sequence,answer,metric,"T")
+    value_T=get_metric_value(sequences,answer,metric,"T")
     answer.pop()
     
     if(value_A==max(value_A,value_C,value_G,value_T)):
@@ -34,11 +33,11 @@ def get_character_for_answer(answer,sequence,metric,less_freq):
         selective_answer.append("T")
     return get_character(selective_answer,less_freq)
 
-def get_metric_value(sequence,answer,metric,character):
+def get_metric_value(sequences,answer,metric,character):
     answer.append(character)
     counter=0
-    for i in range(len(sequence)-1):
-        hammin_distance=hf.get_Hamming_Distance(answer,sequence[i])
+    for i in range(len(sequences)):
+        hammin_distance=hf.get_Hamming_Distance(answer,sequences[i])
         if(hammin_distance>=metric):
             counter=counter+1
     return counter
@@ -60,3 +59,11 @@ def get_repeated(selective_answer,less_freq):
         if(selective_answer[i] in less_freq):
             count=count+1
     return count
+
+def answer_Quality(answer,sequences,metric):
+    counter=0
+    for i in range(len(sequences)):
+        hammin_distance=hf.get_Hamming_Distance(answer,sequences[i])
+        if(hammin_distance>=metric):
+            counter=counter+1
+    return counter/len(sequences)

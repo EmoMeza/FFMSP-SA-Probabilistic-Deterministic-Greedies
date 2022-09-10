@@ -10,8 +10,8 @@ def main():
     else:
         file_name=sys.argv[2]
         threshold=sys.argv[4]
-        sequence=fm.open_File_By_Name(file_name)
-        gd.Greedy(sequence,threshold)
+        sequences=fm.open_File_By_Name(file_name)
+        gd.Greedy(sequences,threshold)
 
 if __name__ == '__main__':
     if(len(sys.argv)==1):
