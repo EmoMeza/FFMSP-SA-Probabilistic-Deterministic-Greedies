@@ -7,4 +7,5 @@ def Greedy(sequences,threshold):
     metric=hf.min_Hamming_Distance(sequences,threshold)
     less_freq=ff.create_less_frequent(sequences)
     answer=uf.constructSolution(sequences,less_freq,metric)
+    print(answer)
     print(uf.answer_Quality(answer,sequences,metric))

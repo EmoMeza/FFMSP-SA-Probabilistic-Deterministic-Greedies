@@ -2,8 +2,6 @@ import random
 
 def create_less_frequent(sequences):
     answer=[]
-    print(sequences[0].get_String())
-    print(len(sequences))
     for i in range(sequences[0].get_Length()-1):
         counter_A=0
         counter_C=0
