@@ -2,9 +2,8 @@ import random
 import Functions.FrequentFunctions as ff
 import Functions.HammingFunctions as hf
 
-def constructSolution(sequences,less_freq,threshold):
+def constructSolution(sequences,less_freq,metric):
     answer=[]
-    metric=hf.min_Hamming_Distance(sequences,threshold)
     for i in range(sequences[0].get_Length()-1):
         if(len(answer)<metric):
             answer.append(ff.get_less_frequent(less_freq,i)) 
