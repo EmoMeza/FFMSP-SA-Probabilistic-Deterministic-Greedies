@@ -9,7 +9,7 @@ def constructSolution(sequences,less_freq,metric):
             answer.append(ff.get_less_frequent(less_freq,i)) 
         else:
             answer.append(get_character_for_answer(answer,sequences,metric,less_freq[i]))            
-    print(answer)
+    return answer
 
 def get_character_for_answer(answer,sequences,metric,less_freq):
     selective_answer=[]
@@ -37,7 +37,7 @@ def get_metric_value(sequences,answer,metric,character):
     answer.append(character)
     counter=0
     for i in range(len(sequences)):
-        hammin_distance=hf.get_Hamming_Distance(answer,sequences[i].get_String())
+        hammin_distance=hf.get_Hamming_Distance(answer,sequences[i])
         if(hammin_distance>=metric):
             counter=counter+1
     return counter
@@ -59,3 +59,11 @@ def get_repeated(selective_answer,less_freq):
         if(selective_answer[i] in less_freq):
             count=count+1
     return count
+
+def answer_Quality(answer,sequences,metric):
+    counter=0
+    for i in range(len(sequences)):
+        hammin_distance=hf.get_Hamming_Distance(answer,sequences[i])
+        if(hammin_distance>=metric):
+            counter=counter+1
+    return counter/len(sequences)
