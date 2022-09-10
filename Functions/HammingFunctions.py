@@ -6,5 +6,5 @@ def get_Hamming_Distance(sequence1, sequence2):
     return cont
 
 def min_Hamming_Distance(sequence,threshold):
-    value=int(float(threshold)*float(len(sequence[0])-1))
+    value=int(float(threshold)*float((sequence[0].get_Length()-1)))
     return value

@@ -2,20 +2,22 @@ import random
 
 def create_less_frequent(sequences):
     answer=[]
-    for i in range(len(sequences[0])-1):
+    print(sequences[0].get_String())
+    print(len(sequences))
+    for i in range(sequences[0].get_Length()-1):
         counter_A=0
         counter_C=0
         counter_G=0
         counter_T=0
         selective_charachter=[]
         for j in range(len(sequences)):
-            if(sequences[j][i]=="A"):
+            if(sequences[j].get_Character(i)=="A"):
                 counter_A=counter_A+1
-            elif(sequences[j][i]=="C"):
+            elif(sequences[j].get_Character(i)=="C"):
                 counter_C=counter_C+1
-            elif(sequences[j][i]=="G"):
+            elif(sequences[j].get_Character(i)=="G"):
                 counter_G=counter_G+1
-            elif(sequences[j][i]=="T"):
+            elif(sequences[j].get_Character(i)=="T"):
                 counter_T=counter_T+1
         if(counter_A==min(counter_A,counter_C,counter_G,counter_T)):
             selective_charachter.append("A")

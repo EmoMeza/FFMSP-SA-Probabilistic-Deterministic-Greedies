@@ -1,5 +1,5 @@
 import os
-
+import Classes.Sequences as seq
 
 
 def open_File_By_Name(name):
@@ -8,7 +8,8 @@ def open_File_By_Name(name):
     file=open(file_path,"r")
     sequences=[]
     for line in file:
-        sequences.append(line)
+        sequence=seq.Sequences(line)
+        sequences.append(sequence)
     file.close()
     return sequences
 
