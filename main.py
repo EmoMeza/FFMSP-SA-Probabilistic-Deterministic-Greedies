@@ -10,7 +10,11 @@ def main():
         file_name=sys.argv[2]
         threshold=sys.argv[4]
         sequences=fm.open_File_By_Name(file_name)
-        gd.Greedy2(sequences,threshold)
+        greedy=input("Which greedy do you want to use? (1 or 2): ")
+        if(greedy=="1"):
+            gd.Greedy(sequences,threshold)
+        elif(greedy=="2"):
+            gd.Greedy2(sequences,threshold)
 
 if __name__ == '__main__':
     if(len(sys.argv)==1):
