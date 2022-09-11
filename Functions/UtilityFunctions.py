@@ -46,13 +46,13 @@ def get_metric_value(sequences,answer,metric,character):
 def get_character(selective_answer,less_freq):
     if(len(selective_answer)==1):
         return selective_answer[0]
-    number_repeated=get_repeated(selective_answer,less_freq)
+    number_repeated=get_repeated(selective_answer,less_freq[0])
     if(number_repeated==0):
         return random.choice(selective_answer)
     if(number_repeated==1):
         return less_freq[0]
     elif(number_repeated>1):
-        return random.choice(less_freq)
+        return random.choice(less_freq[0])
 
 def get_repeated(selective_answer,less_freq):
     count=0
