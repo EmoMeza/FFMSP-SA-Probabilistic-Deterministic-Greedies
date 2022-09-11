@@ -11,6 +11,15 @@ def constructSolution(sequences,metric):
             answer.append(get_character_for_answer(answer,sequences,metric))            
     return answer
 
+def constructSolution2(sequences,metric):
+    answer=[]
+    for i in range(sequences[0].get_Length()-1):
+        if(len(answer)<metric):
+            answer.append(ff.get_less_frequent2(sequences,i)) 
+        else:
+            answer.append(get_character_for_answer2(answer,sequences,metric))            
+    return answer
+
 def get_character_for_answer(answer,sequences,metric):
     selective_answer=[]
     
@@ -33,6 +42,28 @@ def get_character_for_answer(answer,sequences,metric):
         selective_answer.append("T")
     return get_character(selective_answer,ff.create_less_frequent_in_column(sequences,metric))
 
+def get_character_for_answer2(answer,sequences,metric):
+    selective_answer=[]
+    
+    value_A=get_metric_value(sequences,answer,metric,"A")
+    answer.pop()
+    value_C=get_metric_value(sequences,answer,metric,"C")
+    answer.pop()
+    value_G=get_metric_value(sequences,answer,metric,"G")
+    answer.pop()
+    value_T=get_metric_value(sequences,answer,metric,"T")
+    answer.pop()
+    
+    if(value_A==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("A")
+    if(value_C==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("C")
+    if(value_G==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("G")
+    if(value_T==max(value_A,value_C,value_G,value_T)):
+        selective_answer.append("T")
+    return get_character2(selective_answer,ff.create_less_frequent_in_column(sequences,metric))
+
 def get_metric_value(sequences,answer,metric,character):
     #da 100% porque al revisar por letra se pone a cambiar el booleano
     answer.append(character)
@@ -53,6 +84,17 @@ def get_character(selective_answer,less_freq):
         return less_freq[0]
     elif(number_repeated>1):
         return random.choice(less_freq[0])
+
+def get_character2(selective_answer,less_freq):
+    if(len(selective_answer)==1):
+        return selective_answer[0]
+    number_repeated=get_repeated(selective_answer,less_freq[0])
+    if(number_repeated==0):
+        return selective_answer[0]
+    if(number_repeated==1):
+        return less_freq[0][0]
+    elif(number_repeated>1):
+        return less_freq[0][0]
 
 def get_repeated(selective_answer,less_freq):
     count=0

@@ -1,4 +1,3 @@
-
 class Sequences:
     def __init__(self, string):
         self.sequence=string

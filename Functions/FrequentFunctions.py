@@ -60,5 +60,10 @@ def get_less_frequent(sequences,i):
     if(len(characters)==1):
         return characters[0][0]
     else:
-        return random.choice(characters[0])
+        return random.choice(characters[0][0])
+
+def get_less_frequent2(sequences,i):
+    characters=create_less_frequent_in_column(sequences,i)
+    return characters[0][0]
+
 
