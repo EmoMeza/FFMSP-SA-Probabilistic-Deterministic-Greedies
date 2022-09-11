@@ -1,6 +1,6 @@
 import random
-import Functions.FrequentFunctions as ff
-import Functions.HammingFunctions as hf
+import Resources.Functions.FrequentFunctions as ff
+import Resources.Functions.HammingFunctions as hf
 
 def constructSolution(sequences,metric):
     answer=[]

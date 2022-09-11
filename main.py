@@ -1,7 +1,7 @@
 import sys
-import Services.FileManager as fm
-import Services.Timer as tm
-import Functions.Greedys as gd
+import Resources.Services.FileManager as fm
+import Resources.Services.Timer as tm
+import Resources.Functions.Greedys as gd
 
 def main():
     if(sys.argv[1]=="-t"):

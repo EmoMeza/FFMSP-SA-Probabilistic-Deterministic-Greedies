@@ -1,5 +1,5 @@
-import Functions.UtilityFunctions as uf
-import Functions.HammingFunctions as hf
+import Resources.Functions.UtilityFunctions as uf
+import Resources.Functions.HammingFunctions as hf
 
 def Greedy(sequences,threshold):
     metric=hf.min_Hamming_Distance(sequences,threshold)
