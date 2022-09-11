@@ -1,6 +1,6 @@
 import time
-import Functions.Greedys as gd
-import Services.FileManager as fm
+import Resources.Functions.Greedys as gd
+import Resources.Services.FileManager as fm
 
 def timer(sequence,threshold):
     average_time=0
