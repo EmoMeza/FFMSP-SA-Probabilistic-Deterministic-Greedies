@@ -2,25 +2,25 @@ import random
 import Resources.Functions.FrequentFunctions as ff
 import Resources.Functions.HammingFunctions as hf
 
-def constructSolution(sequences,metric):
+def build_PG_Solution(sequences,metric):
     answer=[]
     for i in range(sequences[0].get_Length()-1):
         if(len(answer)<metric):
-            answer.append(ff.get_less_frequent(sequences,i)) 
+            answer.append(ff.get_less_frequent_PG(sequences,i)) 
         else:
-            answer.append(get_character_for_answer(answer,sequences,metric))            
+            answer.append(get_character_for_answer_PG(answer,sequences,metric,i))            
     return answer
 
-def constructSolution2(sequences,metric):
+def build_DG_Solution(sequences,metric):
     answer=[]
     for i in range(sequences[0].get_Length()-1):
         if(len(answer)<metric):
-            answer.append(ff.get_less_frequent2(sequences,i)) 
+            answer.append(ff.get_less_frequent_DG(sequences,i)) 
         else:
-            answer.append(get_character_for_answer2(answer,sequences,metric))            
+            answer.append(get_character_for_answer_DG(answer,sequences,metric))            
     return answer
 
-def get_character_for_answer(answer,sequences,metric):
+def get_character_for_answer_PG(answer,sequences,metric,index):
     selective_answer=[]
     
     value_A=get_metric_value(sequences,answer,metric,"A")
@@ -40,9 +40,9 @@ def get_character_for_answer(answer,sequences,metric):
         selective_answer.append("G")
     if(value_T==max(value_A,value_C,value_G,value_T)):
         selective_answer.append("T")
-    return get_character(selective_answer,ff.create_less_frequent_in_column(sequences,metric))
+    return get_character_PG(selective_answer,ff.create_less_frequent_in_column(sequences,index))
 
-def get_character_for_answer2(answer,sequences,metric):
+def get_character_for_answer_DG(answer,sequences,metric):
     selective_answer=[]
     
     value_A=get_metric_value(sequences,answer,metric,"A")
@@ -62,10 +62,9 @@ def get_character_for_answer2(answer,sequences,metric):
         selective_answer.append("G")
     if(value_T==max(value_A,value_C,value_G,value_T)):
         selective_answer.append("T")
-    return get_character2(selective_answer,ff.create_less_frequent_in_column(sequences,metric))
+    return get_character_DG(selective_answer,ff.create_less_frequent_in_column(sequences,metric))
 
 def get_metric_value(sequences,answer,metric,character):
-    #da 100% porque al revisar por letra se pone a cambiar el booleano
     answer.append(character)
     counter=0
     for i in range(len(sequences)):
@@ -74,18 +73,18 @@ def get_metric_value(sequences,answer,metric,character):
             counter=counter+1
     return counter
 
-def get_character(selective_answer,less_freq):
+def get_character_PG(selective_answer,less_freq):
     if(len(selective_answer)==1):
         return selective_answer[0]
-    number_repeated=get_repeated(selective_answer,less_freq[0])
+    number_repeated=get_repeated(selective_answer,less_freq)
     if(number_repeated==0):
         return random.choice(selective_answer)
     if(number_repeated==1):
         return less_freq[0]
     elif(number_repeated>1):
-        return random.choice(less_freq[0])
+        return random.choice(less_freq)
 
-def get_character2(selective_answer,less_freq):
+def get_character_DG(selective_answer,less_freq):
     if(len(selective_answer)==1):
         return selective_answer[0]
     number_repeated=get_repeated(selective_answer,less_freq[0])
@@ -103,9 +102,9 @@ def get_repeated(selective_answer,less_freq):
             count=count+1
     return count
 
-def answer_Quality(sequences):
+def answer_Quality(sequences,answer,metric):
     counter=0
     for i in range(len(sequences)):
-        if(sequences[i].get_metric_Satisfied()==True):
+        if(hf.get_Hamming_Distance(answer,sequences[i],len(answer))>=metric):
             counter=counter+1
     return counter/len(sequences)
