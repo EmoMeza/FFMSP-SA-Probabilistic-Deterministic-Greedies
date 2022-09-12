@@ -2,12 +2,17 @@ import sys
 import Resources.Services.FileManager as fm
 import Resources.Services.Timer as tm
 import Resources.Functions.Greedys as gd
+import time
 
 def main():
     file_name=sys.argv[2]
     threshold=sys.argv[4]
     sequences=fm.open_File_By_Name(file_name)
-    gd.Deterministic_Greedy(sequences,threshold)
+    initial_time=time.time()
+    quality=gd.Deterministic_Greedy(sequences,threshold)
+    final_time=time.time()
+    print("Time: "+str(final_time-initial_time))
+    print("Quality: "+str(quality))
 
 if __name__ == '__main__':
     if(len(sys.argv)==1):
@@ -23,6 +28,7 @@ if __name__ == '__main__':
         print("\tpython3 Greedy.py -i [filename] -th [number]\n")
         print("Example: python3 Greedy.py -i sequences.txt -th 0.5")
         print("Because of problems nature, threshold must be a number between 0 and 1")
+        print("This program will display the time and quality of the solution obtained")
 
     elif((len(sys.argv)==5 and sys.argv[1]=="-i" and sys.argv[3]=="-th")):
         main()
