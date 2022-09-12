@@ -66,13 +66,13 @@ def save_To_File(average_time,number,stage):
                 file.write("Deterministic Greedy\n")
             file.write("Threshold: 0.75\n")
         if(i<10):
-            file.write("100-300-00"+str(i+1)+".txt\n\tTime:"+str(average_time[i][0])+"\n\tQuality: "+str(average_time[i][1])+"\n\tQuality Desviation: "+str(average_time[i][2])+"\n\tTime Desviation: "+str(average_time[i][3])+"\n")
+            file.write(name+str(i+1)+".txt\n\tTime:"+str(average_time[i][0])+"\n\tQuality: "+str(average_time[i][1])+"\n\tQuality Desviation: "+str(average_time[i][2])+"\n\tTime Desviation: "+str(average_time[i][3])+"\n")
         if(i==10):
             file.write("Threshold: 0.80\n")
         if(i<20 and i>=10):
-            file.write("100-300-0"+str(i-9)+".txt\n\tTime:"+str(average_time[i][0])+"\n\tQuality: "+str(average_time[i][1])+"\n\tQuiality Desviation: "+str(average_time[i][2])+"\n\tTime Desviation: "+str(average_time[i][3])+"\n")
+            file.write(name+str(i-9)+".txt\n\tTime:"+str(average_time[i][0])+"\n\tQuality: "+str(average_time[i][1])+"\n\tQuiality Desviation: "+str(average_time[i][2])+"\n\tTime Desviation: "+str(average_time[i][3])+"\n")
         if(i==20):
             file.write("Threshold: 0.85\n")
         if(i<30 and i>=20):
-            file.write("100-300-"+str(i-19)+".txt\n\tTime: "+str(average_time[i][0])+"\n\tQuality: "+str(average_time[i][1])+"\n\tQuality Desviation: "+str(average_time[i][2])+"\n\tTime Desviation: "+str(average_time[i][3])+"\n")
+            file.write(name+str(i-19)+".txt\n\tTime: "+str(average_time[i][0])+"\n\tQuality: "+str(average_time[i][1])+"\n\tQuality Desviation: "+str(average_time[i][2])+"\n\tTime Desviation: "+str(average_time[i][3])+"\n")
     file.close()

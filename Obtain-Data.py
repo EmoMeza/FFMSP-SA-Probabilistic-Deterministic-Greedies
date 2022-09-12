@@ -1,10 +1,14 @@
 import sys
+import time
 import Resources.Services.Timer as tm
 
 def main():
     print("This procces will take a lot of time")
+    time_start=time.time()
     for i in range(0,6):
         tm.get_answer_Time(i)
+    time_stop=time.time()
+    print(str(time_start-time_stop))
     print("Done")
     print("The results are in the folder Data inside the folder Resources")
 if __name__ == '__main__':

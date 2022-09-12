@@ -29,21 +29,25 @@ def timer(sequence,threshold,number):
     if(number==1):
         average_time=0
         quality=0
-        desviation=[]
+        desviation_quality=[]
+        desviation_time=[]
         sum_quality=0
         for i in range(0,10):
             start_time=time.time()
             quality=float(gd.Deterministic_Greedy(sequence,threshold))
-            desviation.append(quality)
-            sum_quality=quality+sum_quality
             end_time=time.time()
+            sum_quality=quality+sum_quality
+            desviation_quality.append(quality)
+            desviation_time.append(end_time-start_time)
             average_time+=end_time-start_time
         answer=[]
         answer.append(average_time/10)
         quality=quality/10
-        desviation=np.std(desviation)
+        desviation_quality=np.std(desviation_quality)
+        desviation_time=np.std(desviation_time)
         answer.append(str(quality))
-        answer.append(str(desviation))
+        answer.append(str(desviation_quality))
+        answer.append(str(desviation_time))
     return answer
     
 def get_answer_Time(stage):
