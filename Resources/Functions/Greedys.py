@@ -1,14 +1,14 @@
 import Resources.Functions.UtilityFunctions as uf
 import Resources.Functions.HammingFunctions as hf
 
-def Greedy(sequences,threshold):
+def Probabilistic_Greedy(sequences,threshold):
     metric=hf.min_Hamming_Distance(sequences,threshold)
-    answer=uf.constructSolution(sequences,metric)
+    answer=uf.build_PG_Solution(sequences,metric)
     print(answer)
-    print(uf.answer_Quality(sequences))
+    print(uf.answer_Quality(sequences,answer,metric))
 
-def Greedy2(sequences,threshold):
+def Deterministic_Greedy(sequences,threshold):
     metric=hf.min_Hamming_Distance(sequences,threshold)
-    answer=uf.constructSolution2(sequences,metric)
+    answer=uf.build_DG_Solution(sequences,metric)
     print(answer)
-    print(uf.answer_Quality(sequences))
+    print(uf.answer_Quality(sequences,answer,metric))
