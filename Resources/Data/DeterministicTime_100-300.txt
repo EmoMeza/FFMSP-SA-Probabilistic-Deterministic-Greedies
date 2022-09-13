@@ -1,0 +1,154 @@
+Deterministic Greedy
+Threshold: 0.75
+100-3001.txt
+	Time:0.2944217920303345
+	Quality: 0.097
+	Quality Desviation: 0.0030000000000000027
+	Time Desviation: 0.5597556571382859
+100-3002.txt
+	Time:0.3197883367538452
+	Quality: 0.097
+	Quality Desviation: 0.006000000000000005
+	Time Desviation: 0.5371088710144385
+100-3003.txt
+	Time:0.25594966411590575
+	Quality: 0.1
+	Quality Desviation: 0.0060000000000000045
+	Time Desviation: 0.5874639839911213
+100-3004.txt
+	Time:0.3291780948638916
+	Quality: 0.097
+	Quality Desviation: 1.1102230246251565e-16
+	Time Desviation: 0.6289502001363748
+100-3005.txt
+	Time:0.34121408462524416
+	Quality: 0.095
+	Quality Desviation: 1.1102230246251565e-16
+	Time Desviation: 0.5460187042630379
+100-3006.txt
+	Time:0.3113074541091919
+	Quality: 0.096
+	Quality Desviation: 2.220446049250313e-16
+	Time Desviation: 0.550911905504128
+100-3007.txt
+	Time:0.3755652666091919
+	Quality: 0.096
+	Quality Desviation: 2.220446049250313e-16
+	Time Desviation: 0.6022371871347848
+100-3008.txt
+	Time:0.35955352783203126
+	Quality: 0.096
+	Quality Desviation: 0.0030000000000000022
+	Time Desviation: 0.5357490238261765
+100-3009.txt
+	Time:0.2849031686782837
+	Quality: 0.097
+	Quality Desviation: 0.0030000000000000027
+	Time Desviation: 0.5434823916116847
+100-30010.txt
+	Time:0.3398336410522461
+	Quality: 0.096
+	Quality Desviation: 0.006000000000000005
+	Time Desviation: 0.5347049949744807
+Threshold: 0.80
+100-3001.txt
+	Time:1.5607467889785767
+	Quality: 0.04
+	Quiality Desviation: 0.0060000000000000045
+	Time Desviation: 0.23193054038102848
+100-3002.txt
+	Time:1.4028916835784913
+	Quality: 0.044
+	Quiality Desviation: 0.008944271909999166
+	Time Desviation: 0.31002864622383847
+100-3003.txt
+	Time:1.5642333030700684
+	Quality: 0.039
+	Quiality Desviation: 0.009797958971132704
+	Time Desviation: 0.22752128077998374
+100-3004.txt
+	Time:1.6615597248077392
+	Quality: 0.033
+	Quiality Desviation: 0.0060000000000000045
+	Time Desviation: 0.2336990485157388
+100-3005.txt
+	Time:1.423539662361145
+	Quality: 0.040999999999999995
+	Quiality Desviation: 0.012688577540449514
+	Time Desviation: 0.2878378960016027
+100-3006.txt
+	Time:1.4599027633666992
+	Quality: 0.039
+	Quiality Desviation: 0.0030000000000000027
+	Time Desviation: 0.18774592217874267
+100-3007.txt
+	Time:1.4555148124694823
+	Quality: 0.039
+	Quiality Desviation: 0.01676305461424021
+	Time Desviation: 0.3008219683221115
+100-3008.txt
+	Time:1.4722656726837158
+	Quality: 0.034999999999999996
+	Quiality Desviation: 0.0060000000000000045
+	Time Desviation: 0.1865016377393904
+100-3009.txt
+	Time:1.350068950653076
+	Quality: 0.040999999999999995
+	Quiality Desviation: 0.006403124237432833
+	Time Desviation: 0.2364551002484019
+100-30010.txt
+	Time:1.322784423828125
+	Quality: 0.046
+	Quiality Desviation: 0.009219544457292896
+	Time Desviation: 0.3428962721145821
+Threshold: 0.85
+100-3001.txt
+	Time: 1.7762394428253174
+	Quality: 0.0
+	Quality Desviation: 0.0
+	Time Desviation: 0.017986981053277014
+100-3002.txt
+	Time: 1.6102843046188355
+	Quality: 0.0
+	Quality Desviation: 0.0
+	Time Desviation: 0.008606424306330476
+100-3003.txt
+	Time: 1.6159985065460205
+	Quality: 0.001
+	Quality Desviation: 1.734723475976807e-18
+	Time Desviation: 0.03644594364182571
+100-3004.txt
+	Time: 1.6016948699951172
+	Quality: 0.001
+	Quality Desviation: 1.734723475976807e-18
+	Time Desviation: 0.018555442538729688
+100-3005.txt
+	Time: 1.7329227685928346
+	Quality: 0.0
+	Quality Desviation: 0.0
+	Time Desviation: 0.07452078979743136
+100-3006.txt
+	Time: 1.7481780529022217
+	Quality: 0.003
+	Quality Desviation: 6.938893903907228e-18
+	Time Desviation: 0.06527688141426422
+100-3007.txt
+	Time: 1.607200264930725
+	Quality: 0.0
+	Quality Desviation: 0.0
+	Time Desviation: 0.009815477685078105
+100-3008.txt
+	Time: 1.6109379529953003
+	Quality: 0.0
+	Quality Desviation: 0.0
+	Time Desviation: 0.007590785655905835
+100-3009.txt
+	Time: 1.6156663179397583
+	Quality: 0.001
+	Quality Desviation: 1.734723475976807e-18
+	Time Desviation: 0.016644149400741198
+100-30010.txt
+	Time: 1.6939536333084106
+	Quality: 0.002
+	Quality Desviation: 3.469446951953614e-18
+	Time Desviation: 0.07511621412410047
