@@ -12,6 +12,6 @@ En este repo, se podrá encontrar con 2 archivos principales:
         -Greedy.py: Ejecuta un Greedy Deterministo
         -Greedy-Probabilisto.py: Ejecuta un Greedy Probabilisto
         
-Ademas de estos, existe el archivo "Obtain-Data", el cual es un programa que se utilizó para obtener la infromación de ejecución de ambos Greedies con todos los archivos, informacion la cual se utilizó para crear la tabla de datos en el informe de esta primera iteracion.
+Ademas de estos, existe el archivo "Obtain-Data.py", el cual es un programa que se utilizó para obtener la infromación de ejecución de ambos Greedies con todos los archivos de ejemplo, información utilizada para la creacion de la tabla de datos en el informe de esta primera iteracion.
 
 Cada uno de los archivos .py posee un argumento -h el cual indica el correcto uso de este.
